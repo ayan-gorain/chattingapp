@@ -3,6 +3,8 @@ import 'package:chatapp/routes.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
+import 'Pages/bindings.dart';
+
 class AppPages{
   static const INITIAL=AppRoutes.INITIAL;
   static const APPlication=AppRoutes.Application;
@@ -13,15 +15,13 @@ class AppPages{
     GetPage(name: AppRoutes.INITIAL,
         page: ()=>Welcomepage(),
       binding: WelcomeBinding(),
-      middlewares: [
-        RouteWelcomeMiddleware(priority:1)
-      ]
+
 
     )
 
 
 
-  ]
+  ];
 
 
 }
