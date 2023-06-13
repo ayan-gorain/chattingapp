@@ -1,9 +1,9 @@
-import 'package:chatapp/Pages/welcome%20page.dart';
 import 'package:chatapp/routes.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 
-import 'Pages/bindings.dart';
+import 'Pages/welcome/bindings.dart';
+import 'Pages/welcome/view.dart';
 
 class AppPages{
   static const INITIAL=AppRoutes.INITIAL;
@@ -13,7 +13,7 @@ class AppPages{
 
   static final List<GetPage> routes =[
     GetPage(name: AppRoutes.INITIAL,
-        page: ()=>Welcomepage(),
+        page: ()=>WelcomePage(),
       binding: WelcomeBinding(),
 
 
