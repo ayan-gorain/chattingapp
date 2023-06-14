@@ -1,6 +1,6 @@
 class AppRoutes{
   static const INITIAL='/';
-  static const SIGN_IN='SI';
+  static const SIGN_IN='/SI';
   static const NotFound='not_found';
   static const Application='/application';
   static const Contact='/contact';
