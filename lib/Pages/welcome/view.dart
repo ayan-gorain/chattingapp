@@ -1,3 +1,4 @@
+import 'package:chatapp/Pages/SignIn/index.dart';
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -86,6 +87,7 @@ class WelcomePage extends GetView<welcomeController> {
 
                               onPressed: () {
                                 controller.handleSignIn();
+                                Navigator.push(context, MaterialPageRoute(builder: (context) => SignInPage()));
                               },
                             ),
                           ),)
