@@ -7,14 +7,14 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:593340873232:android:9596c1a6b120901b4ee895",
+        "mobilesdk_app_id": "1:593340873232:android:1ff47d574d7c8f474ee895",
         "android_client_info": {
           "package_name": "com.example.chatapp"
         }
       },
       "oauth_client": [
         {
-          "client_id": "593340873232-97fbqhk9t4njf5v4gmq1toqes2bl6ghs.apps.googleusercontent.com",
+          "client_id": "593340873232-msu7hfhmdgpttvf60f7u7uodtbaqqjsn.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
@@ -29,6 +29,13 @@
             {
               "client_id": "593340873232-97fbqhk9t4njf5v4gmq1toqes2bl6ghs.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "593340873232-1s8uggq4h7r2n34btj17g40gld4qhf90.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.chatapp"
+              }
             }
           ]
         }

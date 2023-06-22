@@ -4,6 +4,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
+import 'chat.dart';
+
 class Signnn extends StatelessWidget {
   const Signnn({super.key});
 
@@ -73,8 +75,8 @@ class Signnn extends StatelessWidget {
           accessToken: googleSignInAuthentication.accessToken);
       var auth = FirebaseAuth.instance;
       await auth.signInWithCredential(authCredential);
-      // Navigator.pushReplacement(
-      // context, MaterialPageRoute(builder: (context) => const RealHomeScreen()));
+      Navigator.pushReplacement(
+      context, MaterialPageRoute(builder: (context) => const profilepage()));
     }
     else{
       final x = SnackBar(content: const Text("Please select an account!"),);
