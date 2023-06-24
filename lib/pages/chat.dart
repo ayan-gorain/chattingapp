@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
 
 class profilepage extends StatefulWidget {
@@ -12,7 +13,7 @@ class profilepage extends StatefulWidget {
 }
 
 class _profilepageState extends State<profilepage> {
-  late File imageFile;
+    File? imageFile;
   TextEditingController fullNameController=TextEditingController();
 
 
@@ -20,12 +21,16 @@ class _profilepageState extends State<profilepage> {
   void selectImage(ImageSource source) async{
    XFile? pickedFile= await ImagePicker().pickImage(source: source);
    if(pickedFile != null){
-     CropImage(pickedFile);
+     cropImage(pickedFile);
    }
 
   }
-  void CropImage(XFile file) async{
-    File? croppedImage =await ImageCropper.cropImage(sourcePath:file,Path)
+  void cropImage(XFile file) async{
+    ImageCropper crop = ImageCropper();
+    File? croppedImage =await crop.cropImage(sourcePath: file.path,
+      aspectRatio: CropAspectRatio(ratioX: 1, ratioY: 1),
+
+    );
 
   }
 
@@ -42,6 +47,7 @@ class _profilepageState extends State<profilepage> {
             ListTile(
               onTap: ()
                 {
+                  Navigator.pop(context);
                   selectImage(ImageSource.gallery);
                 },
               leading: Icon(Icons.photo_album),
@@ -50,6 +56,7 @@ class _profilepageState extends State<profilepage> {
             ListTile(
                 onTap: ()
                 {
+                  Navigator.pop(context);
                   selectImage(ImageSource.camera);
                 },
                 leading: Icon(Icons.camera_alt),
@@ -92,7 +99,8 @@ class _profilepageState extends State<profilepage> {
                 },
                 child: CircleAvatar(
                   radius: 69,
-                  child: Icon(Icons.person,size:60),
+                  backgroundImage: (imageFile != null) ? FileImage(imageFile!) : null,
+                  child:(imageFile != null)?  Icon(Icons.person,size:60) :null,
                 ),
               ),
             ),
