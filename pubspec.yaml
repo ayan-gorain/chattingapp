@@ -41,6 +41,10 @@ dependencies:
   flutter_screenutil:
   dots_indicator: ^3.0.0
   shared_preferences: ^2.0.0
+  font_awesome_flutter: ^10.6.0
+  google_nav_bar: ^5.0.6
+
+
   google_sign_in: ^6.1.4
   cloud_firestore: ^4.8.1
   firebase_storage: ^11.2.3

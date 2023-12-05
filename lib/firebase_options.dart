@@ -17,10 +17,7 @@ import 'package:flutter/foundation.dart'
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
-      throw UnsupportedError(
-        'DefaultFirebaseOptions have not been configured for web - '
-        'you can reconfigure this by running the FlutterFire CLI again.',
-      );
+      return web;
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
@@ -28,10 +25,7 @@ class DefaultFirebaseOptions {
       case TargetPlatform.iOS:
         return ios;
       case TargetPlatform.macOS:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for macos - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return macos;
       case TargetPlatform.windows:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for windows - '
@@ -49,6 +43,16 @@ class DefaultFirebaseOptions {
     }
   }
 
+  static const FirebaseOptions web = FirebaseOptions(
+    apiKey: 'AIzaSyDlMWq2tvKVLjZeFFNp6LrslGKADWQoUck',
+    appId: '1:593340873232:web:53142a5fde776fe54ee895',
+    messagingSenderId: '593340873232',
+    projectId: 'chattingapp-9b5bb',
+    authDomain: 'chattingapp-9b5bb.firebaseapp.com',
+    storageBucket: 'chattingapp-9b5bb.appspot.com',
+    measurementId: 'G-N5210SNNHH',
+  );
+
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyBqUntbbxmVTEcqUZZLDAtySKtp77o5J3Q',
     appId: '1:593340873232:android:1ff47d574d7c8f474ee895',
@@ -58,6 +62,17 @@ class DefaultFirebaseOptions {
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
+    apiKey: 'AIzaSyARqX8rLweOMGsQd3ONGaHqwM2yJCjGrd8',
+    appId: '1:593340873232:ios:4d22abcca9ead8644ee895',
+    messagingSenderId: '593340873232',
+    projectId: 'chattingapp-9b5bb',
+    storageBucket: 'chattingapp-9b5bb.appspot.com',
+    androidClientId: '593340873232-4hifgkthch8fb9429ifcl5b27op3en4c.apps.googleusercontent.com',
+    iosClientId: '593340873232-1s8uggq4h7r2n34btj17g40gld4qhf90.apps.googleusercontent.com',
+    iosBundleId: 'com.example.chatapp',
+  );
+
+  static const FirebaseOptions macos = FirebaseOptions(
     apiKey: 'AIzaSyARqX8rLweOMGsQd3ONGaHqwM2yJCjGrd8',
     appId: '1:593340873232:ios:4d22abcca9ead8644ee895',
     messagingSenderId: '593340873232',
