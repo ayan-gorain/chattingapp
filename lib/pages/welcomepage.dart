@@ -1,5 +1,6 @@
 import 'dart:math';
 
+import 'package:chatapp/pages/user.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -17,15 +18,29 @@ class welco extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar:AppBar (
-
         title: Center(
           child: Text(
             'AisAy Connectify',
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
+            style: TextStyle(
+              fontWeight: FontWeight.bold,
+            ),
           ),
-          ),
+
         ),
+        actions: [
+          IconButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => about(user: list[0]),
+                ),
+              );
+            }, icon: Icon(Icons.more_vert),
+
+          ),
+        ],
+
       ),
       floatingActionButton: FloatingActionButton(onPressed: () {  },
         child: Icon(Icons.add_comment_rounded),

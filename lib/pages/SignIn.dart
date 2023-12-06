@@ -7,7 +7,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
-import 'nav.dart';
+import '../model/chat_user.dart';
+
 
 
 
@@ -82,14 +83,11 @@ class Signnn extends StatelessWidget {
     try {
       final GoogleSignIn googleSignIn = GoogleSignIn();
 
-      // Sign out any existing user to force selecting an account
       await googleSignIn.signOut();
 
-      // Always prompt the user to select an account
       final GoogleSignInAccount? googleSignInAccount = await googleSignIn.signIn();
 
       if (googleSignInAccount == null) {
-        // User canceled the login flow
         final x = SnackBar(
           content: const Text("Please select an account!"),
         );
@@ -108,32 +106,27 @@ class Signnn extends StatelessWidget {
       final UserCredential userCredential =
       await auth.signInWithCredential(authCredential);
 
-      // Get the current user
       final User? user = userCredential.user;
 
       if (user != null) {
-        await user.reload(); // Refresh the user's data
+        await user.reload();
 
-        // Fetch the updated user data after refresh
         final User? refreshedUser = auth.currentUser;
 
         if (refreshedUser != null) {
           if (refreshedUser.email != null && refreshedUser.email!.isNotEmpty) {
-            // Check if user data exists in Firestore
-            DocumentSnapshot userSnapshot =
-            await _firestore.collection('users').doc(user.uid).get();
+            bool doesUserExist = await userExists(refreshedUser.uid);
 
-            if (userSnapshot.exists) {
-              // User data exists, navigate to welcome page
+            if (doesUserExist) {
               Navigator.pushReplacement(
                 context,
-                MaterialPageRoute(builder: (context) => Nav()),
+                MaterialPageRoute(builder: (context) => welco()),
               );
             } else {
-              // User data doesn't exist, navigate to onboarding page
+              await createUser(refreshedUser);
               Navigator.pushReplacement(
                 context,
-                MaterialPageRoute(builder: (context) =>Nav()),
+                MaterialPageRoute(builder: (context) => welco()),
               );
             }
           }
@@ -156,6 +149,32 @@ class Signnn extends StatelessWidget {
       print("Error during login: $e");
       // Handle the error or display an error message if necessary
     }
+  }
+
+  Future<bool> userExists(String uid) async {
+    DocumentSnapshot userSnapshot =
+    await FirebaseFirestore.instance.collection('userss').doc(uid).get();
+    return userSnapshot.exists;
+  }
+
+  Future<void> createUser(User user) async {
+    final time = DateTime.now().millisecondsSinceEpoch.toString();
+    final chatUser = Chatuser(
+      id: user.uid,
+      name: user.displayName ?? '',
+      email: user.email ?? '',
+      about: "Hey, I'm using We Chat!",
+      image: user.photoURL ?? '',
+      createdAt: time,
+      isOnline: false,
+      lastActive: time,
+      pushToken: '', // Add the push token here
+    );
+
+    await FirebaseFirestore.instance
+        .collection('userss')
+        .doc(user.uid)
+        .set(chatUser.toJson());
   }
 }
 

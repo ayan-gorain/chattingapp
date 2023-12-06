@@ -1,20 +1,17 @@
 
 import 'package:chatapp/pages/SignIn.dart';
-import 'package:chatapp/pages/nav.dart';
-import 'package:chatapp/pages/user.dart';
 
-import 'package:chatapp/pages/welcomepage.dart';
-import 'package:chatapp/routes.dart';
+
+
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:get/get_navigation/src/root/get_material_app.dart';
+
 
 
 import 'firebase_options.dart';
-
-late Size mq;
+import 'model/chat_user.dart';
 
 
 Future<void> main() async {
@@ -41,18 +38,20 @@ class MyApp extends StatelessWidget {
       // Use builder only if you need to use a library outside ScreenUtilInit context
       builder: (_, __) {
         return MaterialApp(
-          debugShowCheckedModeBanner: false,
-          routes: {
-            "/": (context) =>welco(),
-            MyRoutes.SigninRoute:(context)=>Signnn(),
-            MyRoutes.welcoRoute:(context)=>welco(),
-            MyRoutes.navRoute:(context)=>Nav(),
-            MyRoutes.userRoute:(context)=>about(),
+          home:Signnn() ,
 
-
-
-
-          },
+          // debugShowCheckedModeBanner: false,
+          // routes: {
+          //   "/": (context) =>about(user: Chatuser(name: "",image: "")),
+          //   MyRoutes.SigninRoute:(context)=>Signnn(),
+          //   MyRoutes.welcoRoute:(context)=>welco(),
+          //   MyRoutes.navRoute:(context)=>Nav(),
+          //   MyRoutes.userRoute:(context)=>about(user: list[1],),
+          //
+          //
+          //
+          //
+          // },
         );
       },
     );
