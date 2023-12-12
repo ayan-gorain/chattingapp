@@ -8,12 +8,15 @@ import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 import '../model/chat_user.dart';
+import '../model/api.dart';
 
 
 
 
 class Signnn extends StatelessWidget {
-  const Signnn({super.key});
+   Signnn({super.key});
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -126,7 +129,7 @@ class Signnn extends StatelessWidget {
               await createUser(refreshedUser);
               Navigator.pushReplacement(
                 context,
-                MaterialPageRoute(builder: (context) => welco()),
+                MaterialPageRoute(builder: (context) => welco( )),
               );
             }
           }

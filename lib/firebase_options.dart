@@ -45,17 +45,17 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions web = FirebaseOptions(
     apiKey: 'AIzaSyDlMWq2tvKVLjZeFFNp6LrslGKADWQoUck',
-    appId: '1:593340873232:web:53142a5fde776fe54ee895',
+    appId: '1:593340873232:web:68268c379e4f53fe4ee895',
     messagingSenderId: '593340873232',
     projectId: 'chattingapp-9b5bb',
     authDomain: 'chattingapp-9b5bb.firebaseapp.com',
     storageBucket: 'chattingapp-9b5bb.appspot.com',
-    measurementId: 'G-N5210SNNHH',
+    measurementId: 'G-0VJST502PW',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
     apiKey: 'AIzaSyBqUntbbxmVTEcqUZZLDAtySKtp77o5J3Q',
-    appId: '1:593340873232:android:1ff47d574d7c8f474ee895',
+    appId: '1:593340873232:android:b25a16701d1a5a2a4ee895',
     messagingSenderId: '593340873232',
     projectId: 'chattingapp-9b5bb',
     storageBucket: 'chattingapp-9b5bb.appspot.com',
@@ -63,7 +63,7 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions ios = FirebaseOptions(
     apiKey: 'AIzaSyARqX8rLweOMGsQd3ONGaHqwM2yJCjGrd8',
-    appId: '1:593340873232:ios:4d22abcca9ead8644ee895',
+    appId: '1:593340873232:ios:978a01955aac37ec4ee895',
     messagingSenderId: '593340873232',
     projectId: 'chattingapp-9b5bb',
     storageBucket: 'chattingapp-9b5bb.appspot.com',
@@ -74,7 +74,7 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions macos = FirebaseOptions(
     apiKey: 'AIzaSyARqX8rLweOMGsQd3ONGaHqwM2yJCjGrd8',
-    appId: '1:593340873232:ios:4d22abcca9ead8644ee895',
+    appId: '1:593340873232:ios:978a01955aac37ec4ee895',
     messagingSenderId: '593340873232',
     projectId: 'chattingapp-9b5bb',
     storageBucket: 'chattingapp-9b5bb.appspot.com',

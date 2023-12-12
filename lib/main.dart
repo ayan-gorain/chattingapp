@@ -1,5 +1,6 @@
 
 import 'package:chatapp/pages/SignIn.dart';
+import 'package:chatapp/pages/welcomepage.dart';
 
 
 
@@ -13,19 +14,35 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'firebase_options.dart';
 import 'model/chat_user.dart';
 
-
-Future<void> main() async {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
+  await initializeFirebase(); // Initialize Firebase first
+  setPreferredOrientations(); // Set preferred device orientations
+  runApp(const MyApp());
+}
+
+Future<void> initializeFirebase() async {
+  try {
+    // Ensure Firebase is initialized only if it's not already initialized
+    if (Firebase.apps.isEmpty) {
+      await Firebase.initializeApp(
+        options: DefaultFirebaseOptions.currentPlatform,
+      );
+    }
+  } catch (e) {
+    print('Error initializing Firebase: $e');
+    // Handle initialization error appropriately
+  }
+}
+
+void setPreferredOrientations() {
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,
   ]);
-
-  runApp(const MyApp());
 }
+
+
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
@@ -38,7 +55,7 @@ class MyApp extends StatelessWidget {
       // Use builder only if you need to use a library outside ScreenUtilInit context
       builder: (_, __) {
         return MaterialApp(
-          home:Signnn() ,
+          home:welco() ,
 
           // debugShowCheckedModeBanner: false,
           // routes: {

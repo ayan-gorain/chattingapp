@@ -7,20 +7,12 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:593340873232:android:1ff47d574d7c8f474ee895",
+        "mobilesdk_app_id": "1:593340873232:android:b25a16701d1a5a2a4ee895",
         "android_client_info": {
-          "package_name": "com.example.chatapp"
+          "package_name": "com.aisay.chatapp"
         }
       },
       "oauth_client": [
-        {
-          "client_id": "593340873232-4hifgkthch8fb9429ifcl5b27op3en4c.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.example.chatapp",
-            "certificate_hash": "33265ad55727829bc5f296b611ce17650ad66692"
-          }
-        },
         {
           "client_id": "593340873232-msu7hfhmdgpttvf60f7u7uodtbaqqjsn.apps.googleusercontent.com",
           "client_type": 3
