@@ -229,11 +229,12 @@ class _aboutState extends State<about> {
                   onPressed: () async {
                     final ImagePicker picker = ImagePicker();
 // Pick an image.
-                    final XFile? image = await picker.pickImage(source: ImageSource.gallery);
+                    final XFile? image = await picker.pickImage(source: ImageSource.gallery,imageQuality: 80);
                     if(image!=null){
                       setState(() {
                         _imagePath = image.path;
                       });
+                      Apis.updateProfilePicture(File(_imagePath!));
                       Navigator.pop(context);
                     }
 
@@ -249,11 +250,12 @@ class _aboutState extends State<about> {
 
 
 // Capture a photo.
-                    final XFile? photo = await picker.pickImage(source: ImageSource.camera);
+                    final XFile? photo = await picker.pickImage(source: ImageSource.camera,imageQuality: 80);
                     if(photo!=null){
                       setState(() {
                         _imagePath = photo.path;
                       });
+                      Apis.updateProfilePicture(File(_imagePath!));
                       Navigator.pop(context);
                     }
 
