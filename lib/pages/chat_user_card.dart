@@ -4,6 +4,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import 'chatting.dart';
+
 
 
 class Chatusercard extends StatefulWidget {
@@ -24,7 +26,9 @@ class _ChatusercardState extends State<Chatusercard> {
       margin: EdgeInsets.symmetric(horizontal: 5.sp,vertical: 4.sp),
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
       child: InkWell(
-        onTap: (){},
+        onTap: (){
+          Navigator.push(context, MaterialPageRoute(builder: (_)=>chatting(user: widget.user,)));
+        },
         child: ListTile(
           leading:ClipOval(
             child: CachedNetworkImage(

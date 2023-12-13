@@ -2,6 +2,9 @@ import 'package:chatapp/pages/welcomepage.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter/services.dart';
+
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
@@ -13,11 +16,34 @@ import '../model/api.dart';
 
 
 
-class Signnn extends StatelessWidget {
+class Signnn extends StatefulWidget {
    Signnn({super.key});
 
+  @override
+  State<Signnn> createState() => _SignnnState();
+}
 
+class _SignnnState extends State<Signnn> {
+  void initState() {
+    super.initState();
+    setSystemUIOverlayStyle(); // Call the method to set the system UI overlay style
+  }
 
+  void setSystemUIOverlayStyle() {
+    SystemChrome.setSystemUIOverlayStyle(
+      SystemUiOverlayStyle(
+        systemNavigationBarColor: Colors.white, // Navigation bar color
+        statusBarColor: Colors.white, // Status bar color
+      ),
+    );
+  }
+
+  @override
+  void dispose() {
+    // Ensure to dispose the changes when the widget is disposed
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.dark);
+    super.dispose();
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -82,6 +108,7 @@ class Signnn extends StatelessWidget {
       ),
     );
   }
+
   Future<void> logIn(BuildContext context) async {
     try {
       final GoogleSignIn googleSignIn = GoogleSignIn();
